@@ -109,3 +109,21 @@ obtenerTipoVehiculo = function(placaValidarse){
     }
     return tipoVehiculo;
 };
+
+obtenerDiaPicoYPlaca = function(placa){
+    let ultimoDigito = placa.charAt(6)
+    //console.log(ultimoDigito);
+    let dia;
+    if(ultimoDigito == 1 || ultimoDigito == 2){
+        dia = "LUNES";
+    } else if (ultimoDigito == 3 || ultimoDigito == 4){
+        dia = "MARTES";
+    } else if(ultimoDigito == 5  || ultimoDigito == 6){
+        dia = "MIERCOLES";
+    } else if(ultimoDigito == 7 || ultimoDigito == 8){
+        dia = "JUEVES";
+    } else if(ultimoDigito == 9 || ultimoDigito == 0){
+        dia = "VIERNES"
+    };
+    return dia;
+};
