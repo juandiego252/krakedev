@@ -1,0 +1,38 @@
+.imagenes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+
+}
+
+.imagenes img {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    transition: margin 0.3s ease
+}
+
+.imagenes img:hover {
+    margin: -5px;
+}
+
+.titulo {
+    margin-bottom: 20px;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagenComputador img {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+}
+.imagenComputador img.tijera {
+    max-width: 80px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="juego.js"></script>
+    <script src="serviciosJuego.js"></script>
+    <script src="utilitarios.js"></script>
+    <link href="juego.css" rel="stylesheet">
+</head>
+<body>
+    <div class="principal">
+        <div class="titulo">
+            <h1> JUEGA PIEDRA PAPEL O TIJERA</h1>
+        </div>
+        <div class="espacio"></div>
+        <div class="tituloUsuario">
+            <h2>Elige tu Opcion</h2>
+        </div>
+        <div class="imagenes">
+            <img src="imagenes/papel.png" onclick="jugar('Papel');">
+            <img src="imagenes/piedra.png" onclick="jugar('Piedra')">
+            <img src="imagenes/tijera.png" onclick="jugar('Tijera')">
+        </div>
+        <div class="tituloComputador">
+            <h2>Eleccion Computador</h1>
+        </div>
+        <div class="imagenComputador">
+            <img id="imgComputador" onclick="jugar();">
+        </div>
+        <div class="texto">
+            <h3 id="lblResultado"></h2>
+        </div>
+        <div class="botones">
+            <input type="button" value="NUEVA PARTIDA" onclick="limpiar();">
+        </div>
+    </div>
+    <div class="puntajes">
+        <div class="puntosUsuario">
+            <h2>Puntos Usuario</h1>
+            <h3 id="lblPuntosUsuario">0</h3>
+        </div>
+        <div class="puntosComputador">
+            <h2>Puntos Computador</h2>
+            <h3 id="lblPuntosComputador">0</h3>
+        </div>
+    </div>
+</body>
+</html>
