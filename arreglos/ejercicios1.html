@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="utilitarios.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <input type="button" value="PRUEBA1" onclick="agregarElementos();">
     <input type="text" id="txtNota">\
@@ -14,5 +16,33 @@
     <input type="button" value="Imprimir" onclick="recorrerArreglo();">
     <h3 id="lblPromedio"></h3>
     <input type="button" value="Promedio" onclick="ejecutarPromedio();">
+
+    <table>
+        <tr>
+            <th>CABECERA 1</th>
+            <th>CABECERA 2</th>
+            <th>CABECERA 3</th>
+        </tr>
+        <tr>
+            <td>Celda 1</td>
+            <td>Celda 2</td>
+            <td>Celda 3</td>
+        </tr>
+        <tr>
+            <td>Celda 4</td>
+            <td>Celda 5</td>
+            <td>Celda 6</td>
+        </tr>
+        <tr>
+            <td>Celda 7</td>
+            <td>Celda 8</td>
+            <td>Celda 9</td>
+        </tr>
+    </table>
+    <input type="button" value="Generar Tabla" onclick="generarTabla();">
+    <input type="button" value="Generar Tabla Dinamica" onclick="mostrarNotas();">
+    <div id="divTabla">
+    </div>
 </body>
+
 </html>

@@ -1,33 +1,34 @@
 let notas = [];
 
-agregarElementos = function(){
+agregarElementos = function () {
     notas.push(5);
     notas.push(10);
     console.log(notas.length);
     console.log(notas);
 };
 
-probarAgregar = function(){
+probarAgregar = function () {
     let notaRecuperada = recuperarInt('txtNota');
     agregarNota(notaRecuperada);
+    mostrarNotas();
 }
 
-agregarNota = function(nota){
+agregarNota = function (nota) {
     notas.push(nota);
 };
 
-recorrerArreglo = function(){
+recorrerArreglo = function () {
     let notaR;
-    for(let i = 0; i < notas.length; i++){
+    for (let i = 0; i < notas.length; i++) {
         notaR = notas[i];
         console.log(notaR);
     }
 };
 
-calcularPromedio = function(){
+calcularPromedio = function () {
     let sumaNotas = 0;
     let promedio = 0;
-    for(let i = 0; i < notas.length; i++){
+    for (let i = 0; i < notas.length; i++) {
         sumaNotas += notas[i]
     };
     promedio = (sumaNotas / notas.length);
@@ -35,7 +36,29 @@ calcularPromedio = function(){
     return promedio;
 };
 
-ejecutarPromedio = function(){
+ejecutarPromedio = function () {
     let resultado = calcularPromedio();
-    mostrarTexto("lblPromedio",resultado);
+    mostrarTexto("lblPromedio", resultado);
+};
+
+generarTabla = function () {
+    let contenidoTabla = "";
+    let cmpTabla = document.getElementById("divTabla");
+    contenidoTabla += "<table><tr><td>UNO</td></tr></table>" + "<table><tr><td>DOS</td></tr></table>";
+    cmpTabla.innerHTML = contenidoTabla;
+
+};
+
+mostrarNotas = function () {
+    let miNota;
+    let cmpTabla = document.getElementById("divTabla");
+    let contenidoTabla = "<table><tr><th>NOTA</th></tr>";
+    for (let i = 0; i < notas.length; i++) {
+        miNota = notas[i];
+        contenidoTabla+= "<tr><td>";
+        contenidoTabla+=miNota;
+        contenidoTabla+= "</tr></td>"
+    };
+    contenidoTabla+= "</table>"
+    cmpTabla.innerHTML = contenidoTabla;
 };
