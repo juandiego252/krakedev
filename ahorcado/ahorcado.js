@@ -1,4 +1,7 @@
 let palabraSecretaGlobla;
+let globalIntentos = 0;
+let coincidencias = 0;
+let errores = 0;
 
 esMayuscula = function (caracter) {
     codigoAscii = caracter.charCodeAt(0);
@@ -60,6 +63,11 @@ validar = function (letraValidar) {
             mostrarletra(letraValidar,i);
             letrasEncontradas++;
         }
+     }
+     if (letrasEncontradas === 0) {
+        alert('Letra' + " " + letraValidar + "  " +'no encontrada')
+        errores++;
+        mostrarAhorcado();
      };
 };
 
@@ -67,7 +75,37 @@ ingresarLetra = function(){
     let letraCajaTexto = recuperarTexto("txtLetra");
     if (esMayuscula(letraCajaTexto)) {
         validar(letraCajaTexto);
+        coincidencias++;
+        if (coincidencias === 5) {
+            mostrarImagen("ahorcadoImagen","ganador.gif");
+        }
     } else {
         mostrarTexto("lblErroresValidar","Solo se aceptan mayusculas")
+    }
+    globalIntentos++;
+    if (globalIntentos === 10) {
+        mostrarImagen("ahorcadoImagen", "gameOver.gif");
+    }
+};
+
+mostrarAhorcado = function(){
+    if (errores === 1) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_01.png")
+    } else if (errores === 2) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_02.png")
+    } else if (errores === 3) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_03.png")
+    } else if (errores === 4) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_04.png")
+    } else if (errores === 5) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_05.png")
+    } else if (errores === 6) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_06.png")
+    } else if (errores === 7) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_07.png")
+    } else if (errores === 8) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_08.png")
+    } else if (errores === 9) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_09.png")
     }
 };
