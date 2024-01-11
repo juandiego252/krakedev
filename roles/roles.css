@@ -79,11 +79,11 @@ body{
     justify-content: center;
 }
 tbody tr:nth-child(odd) {
-    background-color: #908efc;
+    background-color: #cfee7b;
   }
   
   tbody tr:nth-child(even) {
-    background-color: #6a51cf;
+    background-color: #edf7d1;
   }
   
   tbody tr {
@@ -93,6 +93,7 @@ tbody tr:nth-child(odd) {
   table {
     background-color: #0b0c0c;
     width: 100%;
+    border-radius: 4px;
   }
   td{
     text-align: center;
