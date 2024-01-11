@@ -80,7 +80,6 @@ agregarEmpleado = function (empleado) {
 
 guardar = function () {
     let valorCedula = recuperarTexto("txtCedula");
-    let valorCedulaBusqueda = recuperarTexto("txtBusquedaCedula");
     let valorNombre = recuperarTexto("txtNombre");
     let valorApellido = recuperarTexto("txtApellido");
     let valorSueldo = recuperarTexto("txtSueldo");
@@ -151,10 +150,63 @@ guardar = function () {
             alert('EMPLEADO GUARDADO CORRECTAMENTE');
             mostrarOpcionEmpleado();
             mostrarEmpleados();
+            esNuevo = false;
         } else {
             alert('Ya existe un empleado con la cedula ' + empleado.cedula);
+        }
+    } else {
+        let editarEmpleado = buscarEmpleado(empleado.cedula);
+        if (editarEmpleado) {
+            // Validar los campos antes de modificar
+            let nuevoNombre = recuperarTexto("txtNombre");
+            let nuevoApellido = recuperarTexto("txtApellido");
+            let nuevoSueldo = recuperarTexto("txtSueldo");
+
+            if (nuevoNombre && nuevoApellido && nuevoSueldo) {
+                editarEmpleado.nombre = nuevoNombre;
+                editarEmpleado.apellido = nuevoApellido;
+                editarEmpleado.sueldo = nuevoSueldo;
+                alert('EMPLEADO MODIFICADO EXITOSAMENTE');
+                mostrarEmpleados();
+            } else {
+                alert('Los campos deben contener valores válidos');
+            }
+        } else {
+            alert('No se encontró un empleado con la cedula ' + empleado.cedula);
         }
     }
 
     return true;
+};
+
+ejcutarBusqueda = function () {
+    let valorCedulaBusqueda = recuperarTexto("txtBusquedaCedula");
+    let encontrarEmpleado = buscarEmpleado(valorCedulaBusqueda);
+    if (encontrarEmpleado == null) {
+        alert('Empleado no Existe')
+    } else {
+        mostrarTextoEnCaja("txtCedula", encontrarEmpleado.cedula);
+        mostrarTextoEnCaja("txtNombre", encontrarEmpleado.nombre);
+        mostrarTextoEnCaja("txtApellido", encontrarEmpleado.apellido);
+        mostrarTextoEnCaja("txtSueldo", encontrarEmpleado.sueldo);
+
+        deshabilitarComponente("txtCedula");
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+    }
+};
+
+limpiar = function (){
+    // Obtener referencias a los campos de texto
+    let txtCedula = document.getElementById("txtCedula");
+    let txtNombre = document.getElementById("txtNombre");
+    let txtApellido = document.getElementById("txtApellido");
+    let txtSueldo = document.getElementById("txtSueldo");
+
+    // Limpiar los valores de los campos
+    txtCedula.value = "";
+    txtNombre.value = "";
+    txtApellido.value = "";
+    txtSueldo.value = "";
 };
