@@ -210,3 +210,48 @@ limpiar = function (){
     txtApellido.value = "";
     txtSueldo.value = "";
 };
+
+buscarPorRol = function(){
+    let valorCajaTexto = recuperarInt("txtBusquedaCedulaRol");
+    console.log(valorCajaTexto);
+    let empleado = buscarEmpleado(valorCajaTexto);
+    console.log(empleado);
+
+    if (empleado != null) {
+        mostrarTexto("infoCedula", empleado.cedula);
+        mostrarTexto("infoNombre", empleado.nombre);
+        mostrarTexto("infoSueldo", empleado.sueldo);
+        
+    } else {
+        alert('Empleado no existe')
+    };
+};
+
+calcularAporteEmpleado = function(sueldo){
+    sueldo = sueldo * (9.45/100);
+    return sueldo.toFixed(2);
+};
+
+calcularValorPagar = function (sueldo,iess,descuento){
+    let valorPagar = sueldo - iess - descuento;
+    return valorPagar.toFixed(2);
+};
+
+calcularRol = function () {
+    // Recuperar sueldo y descuentos de la pantalla
+    let sueldo = recuperarFloatDiv("infoSueldo");
+    let descuentos = recuperarFloat("txtDescuentos");
+
+    /*
+    if (isNaN(descuentos) || descuentos <= 0 || descuentos > sueldo) {
+        alert('El valor de descuentos debe ser un número válido y estar entre 0 y el sueldo del empleado.');
+        return;
+    }
+    */
+    // Calcular aporte del empleado y mostrar en pantalla
+    let aporteEmpleado = calcularAporteEmpleado(sueldo);
+    mostrarTexto("infoIESS", aporteEmpleado);
+    // Calcular valor a pagar y mostrar en pantalla
+    let valorAPagar = calcularValorPagar(sueldo,aporteEmpleado, descuentos);
+    mostrarTexto("infoPago", valorAPagar);
+};
